@@ -4,9 +4,6 @@ import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(request,response){
 
-    // console.log(request.method);
-    // console.log(response);
-
     const cars=[
         {"name":"swift","type":"hatchback","price":870000},
         {"name":"dzire","type":"sedan","price":980000},

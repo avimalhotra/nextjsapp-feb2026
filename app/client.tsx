@@ -5,6 +5,7 @@ export default function Client(){
   
   // const [name, setName] = useState("");
   const [form, setForm]=useState({ name:'', email:''});
+  const [error, setError] = useState("")
 
   const handleChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
     setForm({...form,[e.target.name]:e.target.value})
@@ -18,11 +19,26 @@ export default function Client(){
     const name = formData.get("name");
     const email = formData.get("email");
 
+
+    if (name.length<3) {
+
+      setError("Invalid name")
+
+      return
+    }
+    else if (!email.includes("@")) {
+
+      setError("Invalid email")
+
+      return
+    }
+
+    setError("")
+
     await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({ name:name, email:email }),
-    })
-
+    }).then(i=>i.json()).then(i=>setError("submitted"))
     
   }
   
@@ -33,10 +49,11 @@ export default function Client(){
 
 
     return (
-      <form onSubmit={handleSubmit}>
-          <label>Name: <input type="text" name='name' className='border px-4 py-2 mx-2 rounded' required onChange={handleChange} /></label>
+      <form onSubmit={handleSubmit} noValidate>
+          <label>Name: <input type="text" name='name' className='border px-4 py-2 mx-2 rounded' required pattern='[a-zA-Z]{1}[a-zA-Z .]{2,}' onChange={handleChange} /></label>
           <label>Email: <input type="email" name='email' className='border px-4 py-2 mx-2 rounded' onChange={handleChange} required /></label>
           <button className='border px-4 py-2 rounded'>Send</button>
+          {error}
       </form>
     )
 }

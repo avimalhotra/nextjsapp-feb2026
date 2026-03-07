@@ -2,6 +2,7 @@ import Header from "./header";
 import Nav from "./nav";
 import Footer from "./footer";
 import Client from "./client";
+import TestAPI from "./testapi";
 
 export default function Home(){
   return (
@@ -13,6 +14,8 @@ export default function Home(){
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quam id quas magni ad minus recusandae aliquid. Earum dolorum, in rerum, adipisci vero ut eius esse, cum odit eaque unde.</p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quam id quas magni ad minus recusandae aliquid. Earum dolorum, in rerum, adipisci vero ut eius esse, cum odit eaque unde.</p>
               <Client />
+              <hr />
+              <TestAPI></TestAPI>
            </main>
            <Footer />
       </div>

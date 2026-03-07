@@ -1,14 +1,18 @@
-// import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function POST(request:Request){
+export async function POST(request){
 
-     try{
-          const res= await request.json();
-          
-          return Response.json({message:"User info updated", body:res},{status:200});
+     try {
+          const body = await request.json();
+          const { name, email } = body;
+
+          const newUser = {message:"post data", id: Date.now(), name, email };
+
+          return NextResponse.json(newUser, { status: 201 });
      }
-     catch(err){
-          return Response.json({error:`Error found - ${err}`},{status:404});
+
+     catch (error) {
+          return NextResponse.json({ error: 'Failed to create user' }, { status: 500 });
      }
 
 }

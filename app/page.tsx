@@ -1,8 +1,9 @@
 import Header from "./header";
 import Nav from "./nav";
 import Footer from "./footer";
-import Client from "./client";
-import TestAPI from "./testapi";
+// import Client from "./client";
+// import TestAPI from "./testapi";
+import ContactForm from "./contactform";
 
 export default function Home(){
   return (
@@ -13,9 +14,9 @@ export default function Home(){
               <h2 className="text-3xl font-bold">Welcome to our Website</h2>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quam id quas magni ad minus recusandae aliquid. Earum dolorum, in rerum, adipisci vero ut eius esse, cum odit eaque unde.</p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti quam id quas magni ad minus recusandae aliquid. Earum dolorum, in rerum, adipisci vero ut eius esse, cum odit eaque unde.</p>
-              <Client />
-              <hr />
-              <TestAPI></TestAPI>
+              
+              <ContactForm />
+              
            </main>
            <Footer />
       </div>

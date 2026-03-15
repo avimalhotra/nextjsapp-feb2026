@@ -1,7 +1,5 @@
 export default async function TestAPI(){
      
-     // const res=await fetch('https://jsonplaceholder.typicode.com/users/');
-     // const res=await fetch("/api/cars");
      const res=await fetch("http://localhost:3000/api/cars",{cache:"no-store"});
 
      const cars=await res.json();
